@@ -2,7 +2,7 @@
   "name": "sort-typescript-imports",
   "displayName": "Sort Typescript Imports",
   "description": "Sorts import statements in Typescript code",
-  "version": "1.4.1",
+  "version": "1.4.1-a0",
   "publisher": "miclo",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -60,16 +60,9 @@
         "typescript.extension.sortImports.pathSortOrder": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "package",
-              "relativeUpLevel",
-              "relativeDownLevel"
-            ]
+            "type": "string"
           },
           "uniqueItems": true,
-          "minItems": 3,
-          "maxItems": 3,
           "description": "When `sortMethod` is set to `path`, this controls the order to sort imports between package-level and path-relative imports. 'relativeUpLevel' describes relative paths that begin with '../', while ;relativeDownLevel' describes relative paths that begin with './'",
           "default": [
             "relativeDownLevel",
@@ -154,10 +147,11 @@
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^2.0.3",
-    "vscode": "^1.0.0",
-    "mocha": "^2.3.3",
+    "@types/mocha": "^2.2.32",
     "@types/node": "^6.0.40",
-    "@types/mocha": "^2.2.32"
+    "mocha": "^2.3.3",
+    "typescript": "^2.0.3",
+    "vsce": "^1.55.0",
+    "vscode": "^1.0.0"
   }
 }

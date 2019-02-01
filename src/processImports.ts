@@ -35,6 +35,13 @@ function comparePath(a: TypescriptImport, b: TypescriptImport) {
 
 function getPathPriority(path: string) {
     let sortOrder = options.getPathSortOrdering();
+
+    const matchingIdx = sortOrder.findIndex(v => v.charAt(0) === '^' && path.indexOf(v.substr(1)) === 0);
+
+    if(matchingIdx >= 0) {
+        return matchingIdx;
+    }
+
     if (/^\.\//.test(path)) {
         return sortOrder.indexOf('relativeDownLevel');
     } else if (/^\.\.\//.test(path)) {
