@@ -1,18 +1,14 @@
 {
-  "name": "sort-typescript-imports",
+  "name": "sort-typescript-imports-hardcoded",
   "displayName": "Sort Typescript Imports",
   "description": "Sorts import statements in Typescript code",
-  "version": "1.4.1-a0",
+  "version": "1.0.0",
   "publisher": "miclo",
   "license": "MIT",
   "icon": "images/icon.png",
-  "bugs": {
-    "url": "https://github.com/MLoughry/sort-typescript-imports/issues"
-  },
-  "homepage": "https://github.com/MLoughry/sort-typescript-imports/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MLoughry/sort-typescript-imports.git"
+    "url": "https://github.com/MLoughry/sort-typescript-imports-hardcoded.git"
   },
   "engines": {
     "vscode": "^1.10.0"
