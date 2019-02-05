@@ -36,7 +36,22 @@ function comparePath(a: TypescriptImport, b: TypescriptImport) {
 function getPathPriority(path: string) {
     let sortOrder = options.getPathSortOrdering();
 
-    const matchingIdx = sortOrder.findIndex(v => v.charAt(0) === '^' && path.indexOf(v.substr(1)) === 0);
+    const matchingIdx = sortOrder.findIndex(v => {
+        const isOverride = v.charAt(0) === '^';
+        if(!isOverride) return false;
+
+        const override = v.substr(1);
+
+        const startsWithOverride = path.indexOf(override) === 0;
+        if(!startsWithOverride) return false;
+
+        const isExactMatch = path === override;
+        if(isExactMatch) return true;
+
+        // This will prevent `import from "typesafe"` from being triggered by `^types`
+        const isPartialMatch = path.charAt(override.length) === '/';
+        return isPartialMatch;
+    });
 
     if(matchingIdx >= 0) {
         return matchingIdx;

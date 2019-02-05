@@ -2,7 +2,7 @@
   "name": "sort-typescript-imports-hardcoded",
   "displayName": "Sort Typescript Imports",
   "description": "Sorts import statements in Typescript code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "miclo",
   "license": "MIT",
   "icon": "images/icon.png",
