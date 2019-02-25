@@ -1,15 +1,15 @@
 import * as options from './options';
 import { TypescriptImport } from './TypescriptImport';
+import * as stable from 'stable';
 
 export default function processImports(importClauses: TypescriptImport[]): TypescriptImport[] {
-    return importClauses
+    return stable(importClauses
         .map(importClause => {
             if (importClause.namedImports) {
                 importClause.namedImports.sort((a, b) => a.importName.localeCompare(b.importName, 'en', { sensitivity: 'base' }));
             }
             return importClause;
-        })
-        .sort(compareImportClauses);
+        }), compareImportClauses);
 }
 
 function compareImportClauses(a: TypescriptImport, b: TypescriptImport) {
